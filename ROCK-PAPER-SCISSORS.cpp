@@ -26,7 +26,11 @@ int main() {
             playerChoice = 2;
         } else if (player == "scissors") {
             playerChoice = 3;
-        } else {
+        } 
+            else if (player == "gun") { 
+            playerChoice = 4;
+        }
+        else {
             std::cout << "Invalid choice.\n";
             continue;
         }
@@ -39,7 +43,8 @@ int main() {
             std::cout << "It's a tie!\n";
         } else if ((playerChoice == 1 && computer == 3) ||
                    (playerChoice == 2 && computer == 1) ||
-                   (playerChoice == 3 && computer == 2)) {
+                   (playerChoice == 3 && computer == 2) ||
+                   (playerChoice == 4 && computer != 4)) {
             std::cout << "You win!\n";
         } else {
             std::cout << "You lose!\n";
