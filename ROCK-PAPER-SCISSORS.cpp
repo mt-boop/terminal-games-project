@@ -2,13 +2,17 @@
 #include <random>
 #include <string>
 
+
 int main() {
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::uniform_int_distribution<int> computerChoice(1, 3);
-
+    std::uniform_int_distribution<int> computerChoice(1, 4); // 1: rock, 2: paper, 3: scissors, 4: gun
+    
     std::cout << "Rock, Paper, Scissors\n";
     std::cout << "Enter rock, paper, scissors, or quit.\n";
+
+    int playerscore = 0;
+    int computerscore = 0;
 
     while (true) {
         std::string player;
@@ -36,7 +40,7 @@ int main() {
         }
 
         int computer = computerChoice(generator);
-        const std::string names[] = {"", "rock", "paper", "scissors"};
+        const std::string names[] = {"", "rock", "paper", "scissors", "gun"};
         std::cout << "Computer chose " << names[computer] << ".\n";
 
         if (playerChoice == computer) {
@@ -46,11 +50,15 @@ int main() {
                    (playerChoice == 3 && computer == 2) ||
                    (playerChoice == 4 && computer != 4)) {
             std::cout << "You win!\n";
+            playerscore++;
         } else {
             std::cout << "You lose!\n";
+            computerscore++;
         }
+        
     }
 
+    std::cout << "Final Score - You: " << playerscore << ", Computer: " << computerscore << "\n";
     std::cout << "Thanks for playing!\n";
     return 0;
 }
