@@ -15,7 +15,7 @@ int main() {
     int computerscore = 0;
 
     while (true) {
-        std::string player;
+        string player;
         std::cout << "\nYour choice: ";
         std::cin >> player;
 
